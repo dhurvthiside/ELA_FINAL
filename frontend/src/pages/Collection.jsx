@@ -136,10 +136,6 @@ const Collection = () => {
               {/* Now ProductItem only renders the image */}
               <ProductItem name={item.name} id={item._id} price={item.price} image={item.image} />
               {/* Custom Text Styling for Item Name and Price */}
-              <div className="text-center mt-3">
-                <p className="font-semibold text-lg text-gray-800">{item.name}</p>
-                <p className="font-bold text-xl text-indigo-600 mt-2">${item.price}</p>
-              </div>
             </div>
           ))}
         </div>
