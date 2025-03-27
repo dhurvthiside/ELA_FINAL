@@ -25,21 +25,23 @@ const SubCategory = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
         {subCategories.map((subCategory, index) => (
           <div
             key={index}
-            className="cursor-pointer flex flex-col items-center justify-center rounded-2xl overflow-hidden transform hover:scale-105 transition-all"
+            className="cursor-pointer flex flex-col items-center justify-center transform hover:scale-105 transition-all"
             onClick={() => handleSubCategoryClick(subCategory.name)}
           >
             <img
               src={subCategory.image}
               alt={subCategory.name}
-              className="w-60 h-60 object-cover rounded-full mb-4"
+              className="w-56 h-60 object-cover rounded-lg"
             />
-            <span className="text-center text-lg font-semibold text-gray-700">
-              {subCategory.name}
-            </span>
+            <div className="text-center mt-3 w-full">
+              <span className="text-lg font-semibold text-gray-700">
+                {subCategory.name}
+              </span>
+            </div>
           </div>
         ))}
       </div>

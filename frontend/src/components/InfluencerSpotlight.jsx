@@ -37,13 +37,15 @@ const InfluencerSpotlight = () => {
   }, []);
 
   return (
-    <div className="w-full py-16 bg-gradient-to-r from-indigo-50 to-gray-100 relative">
+    <div className="w-full py-16 bg-white relative">
       {/* Heading Section */}
       <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-indigo-700 uppercase tracking-wide drop-shadow-lg">
-          Influencer Spotlight
-        </h2>
-        <p className="text-gray-700 text-sm md:text-lg mt-3 w-3/4 md:w-1/2 mx-auto">
+      <h2 className="text-4xl md:text-5xl font-extrabold text-[#3D342F] uppercase tracking-wide"
+        style={{ fontFamily: "Cormorant Garamond, serif" }}>
+        Influencer Spotlight
+      </h2>
+        <p className="text-[#8E7A69] text-sm md:text-lg mt-3 w-3/4 md:w-1/2 mx-auto"
+            style={{ fontFamily: "Josefin Sans, sans-serif" }}>
           Discover the trendsetters who are shaping the fashion world with their unique style and influence.
         </p>
       </div>
@@ -54,14 +56,14 @@ const InfluencerSpotlight = () => {
           <div className="swiper-wrapper mb-16">
             {instagramReels.map((reel, index) => (
               <div key={index} className="swiper-slide">
-                <div className="bg-white shadow-2xl rounded-2xl h-96 flex justify-center items-center border border-gray-300 transition-transform transform hover:scale-105 overflow-hidden">
+                <div className="bg-[#F5F3F0] shadow-lg rounded-lg h-96 flex justify-center items-center border border-[#E7A695] transition-transform transform hover:scale-105 overflow-hidden">
                   <iframe
                     src={reel}
                     width="100%"
                     height="100%"
                     frameBorder="0"
                     allowFullScreen
-                    className="rounded-2xl shadow-md"
+                    className="rounded-lg"
                   ></iframe>
                 </div>
               </div>
@@ -69,10 +71,10 @@ const InfluencerSpotlight = () => {
           </div>
         </div>
 
-        {/* Navigation Buttons (Placed Absolutely for Visibility) */}
-        <button className="swiper-button-prev absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-10 z-10 bg-white border border-indigo-600 !w-12 !h-12 flex justify-center items-center rounded-full shadow-xl hover:bg-indigo-600 transition-all duration-300">
+        {/* Navigation Buttons - Updated for a Clean White Background */}
+        <button className="swiper-button-prev absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-10 z-10 bg-[#3D342F] !w-12 !h-12 flex justify-center items-center rounded-full shadow-md hover:bg-[#8E7A69] transition-all duration-300">
           <svg
-            className="h-6 w-6 text-indigo-600 hover:text-white"
+            className="h-6 w-6 text-white"
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"
@@ -89,9 +91,9 @@ const InfluencerSpotlight = () => {
           </svg>
         </button>
 
-        <button className="swiper-button-next absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-10 z-10 bg-white border border-indigo-600 !w-12 !h-12 flex justify-center items-center rounded-full shadow-xl hover:bg-indigo-600 transition-all duration-300">
+        <button className="swiper-button-next absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-10 z-10 bg-[#3D342F] !w-12 !h-12 flex justify-center items-center rounded-full shadow-md hover:bg-[#8E7A69] transition-all duration-300">
           <svg
-            className="h-6 w-6 text-indigo-600 hover:text-white"
+            className="h-6 w-6 text-white"
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"
