@@ -56,17 +56,17 @@ const InfluencerSpotlight = () => {
           <div className="swiper-wrapper mb-16">
             {instagramReels.map((reel, index) => (
               <div key={index} className="swiper-slide">
-                <div className="bg-[#F5F3F0] shadow-lg rounded-lg h-96 flex justify-center items-center border border-[#E7A695] transition-transform transform hover:scale-105 overflow-hidden">
-                  <iframe
-                    src={reel}
-                    width="100%"
-                    height="100%"
-                    frameBorder="0"
-                    allowFullScreen
-                    className="rounded-lg"
-                  ></iframe>
-                </div>
+              <div className="bg-[#F5F3F0] shadow-lg rounded-lg h-[600px] min-h-[600px] flex justify-center items-center border border-[#E7A695] transition-transform transform hover:scale-105 overflow-hidden">
+                <iframe
+                  src={reel}
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  allowFullScreen
+                  className="rounded-lg"
+                ></iframe>
               </div>
+            </div>
             ))}
           </div>
         </div>
