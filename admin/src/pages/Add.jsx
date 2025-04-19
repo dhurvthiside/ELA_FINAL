@@ -16,7 +16,6 @@ const Add = ({ token }) => {
   const [category, setCategory] = useState('Rings');
   const [subCategory, setSubCategory] = useState('Faux Polki');
   const [bestseller, setBestseller] = useState(false);
-  const [sizes, setSizes] = useState([]);
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
@@ -34,12 +33,12 @@ const Add = ({ token }) => {
       formData.append('category', category);
       formData.append('subCategory', subCategory);
       formData.append('bestseller', bestseller);
-      formData.append('sizes', JSON.stringify(sizes));
+      formData.append('sizes', JSON.stringify(['M']));  // Enforce only 'M'
 
-      image1 && formData.append('image1', image1);
-      image2 && formData.append('image2', image2);
-      image3 && formData.append('image3', image3);
-      image4 && formData.append('image4', image4);
+      if (image1) formData.append('image1', image1);
+      if (image2) formData.append('image2', image2);
+      if (image3) formData.append('image3', image3);
+      if (image4) formData.append('image4', image4);
 
       const response = await axios.post(
         backendUrl + '/api/product/add',
@@ -56,7 +55,6 @@ const Add = ({ token }) => {
         setImage3(false);
         setImage4(false);
         setPrice('');
-        setSizes([]);
         setBestseller(false);
       } else {
         toast.error(response.data.message);
@@ -151,26 +149,8 @@ const Add = ({ token }) => {
 
       <div>
         <p className="mb-2">Product Sizes</p>
-        <div className="flex gap-3">
-          {['S', 'M', 'L', 'XL', 'XXL'].map((size) => (
-            <div
-              key={size}
-              onClick={() =>
-                setSizes((prev) =>
-                  prev.includes(size) ? prev.filter((item) => item !== size) : [...prev, size]
-                )
-              }
-            >
-              <p
-                className={`${
-                  sizes.includes(size) ? 'bg-pink-100' : 'bg-slate-200'
-                } px-3 py-1 cursor-pointer`}
-              >
-                {size}
-              </p>
-            </div>
-          ))}
-        </div>
+        <p className="px-3 py-1 bg-green-100 inline-block">M</p>
+        <p className="text-sm text-gray-500 mt-1">Size will be set to "M" by default.</p>
       </div>
 
       <div className="flex gap-2 mt-2">
