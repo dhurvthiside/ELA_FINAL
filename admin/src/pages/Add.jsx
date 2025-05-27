@@ -1,3 +1,4 @@
+// Add this import
 import React, { useState } from 'react';
 import { assets } from '../assets/assets';
 import axios from 'axios';
@@ -16,12 +17,18 @@ const Add = ({ token }) => {
   const [category, setCategory] = useState('Rings');
   const [subCategory, setSubCategory] = useState('Faux Polki');
   const [bestseller, setBestseller] = useState(false);
+  const [stockQty, setStockQty] = useState(0);  // <-- Added this line
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
 
     if (price <= 0) {
       toast.error('Price must be greater than 0.');
+      return;
+    }
+
+    if (stockQty < 0) {
+      toast.error('Stock quantity cannot be negative.');
       return;
     }
 
@@ -34,6 +41,7 @@ const Add = ({ token }) => {
       formData.append('subCategory', subCategory);
       formData.append('bestseller', bestseller);
       formData.append('sizes', JSON.stringify(['M']));  // Enforce only 'M'
+      formData.append('stockQty', stockQty);  // <-- Added this line
 
       if (image1) formData.append('image1', image1);
       if (image2) formData.append('image2', image2);
@@ -56,6 +64,7 @@ const Add = ({ token }) => {
         setImage4(false);
         setPrice('');
         setBestseller(false);
+        setStockQty(0);  // <-- Reset stockQty
       } else {
         toast.error(response.data.message);
       }
@@ -143,6 +152,19 @@ const Add = ({ token }) => {
             className="w-full px-3 py-2 sm:w-[120px]"
             type="number"
             placeholder="25"
+          />
+        </div>
+
+        <div>
+          <p className="mb-2">Stock Quantity</p>
+          <input
+            onChange={(e) => setStockQty(Number(e.target.value))}
+            value={stockQty}
+            className="w-full px-3 py-2 sm:w-[120px]"
+            type="number"
+            placeholder="0"
+            min="0"
+            required
           />
         </div>
       </div>

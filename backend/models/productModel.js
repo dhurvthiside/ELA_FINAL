@@ -9,9 +9,10 @@ const productSchema = new mongoose.Schema({
     subCategory: { type: String, required: true },
     sizes: { type: Array, required: true },
     bestseller: { type: Boolean },
-    date: { type: Number, required: true }
-})
+    date: { type: Number, required: true },
+    stockQty: { type: Number, default: 0 } // Adding the stockQty field with a default value of 0
+});
 
-const productModel  = mongoose.models.product || mongoose.model("product",productSchema);
+const productModel  = mongoose.models.product || mongoose.model("product", productSchema);
 
-export default productModel
+export default productModel;
